@@ -149,7 +149,4 @@
     const totalNumber = numbers.reduce((acc, num) => acc + num, 0)
 
     // console.log(totalNumber);
-
-    
-    // ---------------------
 }
