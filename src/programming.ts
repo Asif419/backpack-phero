@@ -1,13 +1,12 @@
 {
     // Task 1: Array filtering and mapping
 
-    interface TPerson {
+    interface IPerson {
         name: string;
         age: number;
         gender: string;
     }
-
-    const people: TPerson[] = [
+    const people: IPerson[] = [
         {
             name: "Rupkotha",
             age: 28,
@@ -29,11 +28,10 @@
             gender: "Female"
         }
     ];
-    
 
-    function filteringFemale(people: TPerson[]): TPerson[] {
-        const peopleWithoutFemale: TPerson[] = [];
-        people.map((person: TPerson) => {
+    function filteringFemale(people: IPerson[]): IPerson[] {
+        const peopleWithoutFemale: IPerson[] = [];
+        people.map((person: IPerson) => {
             if (person.gender != 'Female') {
                 peopleWithoutFemale.push(person)
             }
@@ -42,14 +40,99 @@
     }
     const peopleWithoutFemale = filteringFemale(people);
 
-    function printNames(peopleWithoutFemale: TPerson[]): void {
+    function makeArrayWithNameWithoutFemale(peopleWithoutFemale: IPerson[]): string[] {
+        const nameWithoutFemale: string[] = [];
         peopleWithoutFemale.forEach(person => {
-            console.log(person.name)
+            nameWithoutFemale.push(person.name)
         })
+        return nameWithoutFemale;
     }
 
-    // uncomment next line to check task-1
-    // printNames(peopleWithoutFemale);
+    const finalNames = makeArrayWithNameWithoutFemale(peopleWithoutFemale);
+    // console.log(finalNames)
+
+    // ---------------------------
+    // Task 2: Object Manipulation
+    interface IBook {
+        title: string;
+        author: string;
+        year: number;
+    }
+
+    const books: IBook[] = [
+        {
+            title: "To Kill a Mockingbird",
+            author: "Harper Lee",
+            year: 1960
+        },
+        {
+            title: "1984",
+            author: "George Orwell",
+            year: 1949
+        },
+        {
+            title: "The Great Gatsby",
+            author: "F. Scott Fitzgerald",
+            year: 1925
+        },
+        {
+            title: "Pride and Prejudice",
+            author: "Jane Austen",
+            year: 1813
+        }
+    ];
+    function findOutBooksName(allBooks: IBook[]): string[] {
+        const booksName: string[] = [];
+        allBooks.forEach((book: IBook) => {
+            booksName.push(book.title);
+        })
+        return booksName;
+    }
+    const booksName = findOutBooksName(books)
+    // console.log(booksName);
 
 
+    // ------------------------------
+    // Task - 3: Function Composition
+    const squre = (x: number): number => x * x
+    const double = (x: number): number => x * 2
+    const addFive = (x: number): number => x + 5
+
+    const getFinalNumber = (x: number): number => addFive(double(squre(x)));
+    // console.log(getFinalNumber(5));
+
+
+    // ----------------------------
+    // Task 4: Sorting Ojects
+
+    interface ICar {
+        make: string;
+        model: string;
+        year: number;
+    }
+
+    const cars: ICar[] = [
+        {
+            make: "Toyota",
+            model: "Corolla",
+            year: 2020
+        },
+        {
+            make: "Honda",
+            model: "Civic",
+            year: 2018
+        },
+        {
+            make: "Ford",
+            model: "Mustang",
+            year: 2022
+        },
+        {
+            make: "Tesla",
+            model: "Model 3",
+            year: 2023
+        }
+    ];
+
+    
 }
