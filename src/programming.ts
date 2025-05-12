@@ -51,6 +51,7 @@
     const finalNames = makeArrayWithNameWithoutFemale(peopleWithoutFemale);
     // console.log(finalNames)
 
+
     // ---------------------------
     // Task 2: Object Manipulation
     interface IBook {
@@ -134,5 +135,21 @@
         }
     ];
 
+    function sortCars(cars: ICar[]): ICar[] {
+        cars.sort((a, b) => a.year - b.year)
+        return cars;
+    }
+    const yearlySortedCars = sortCars(cars);
+    // console.log(yearlySortedCars);
+
+
+    // ----------------------------
+    // Task 5: Array Reduction
+    const numbers = [1, 2, 3, 4];
+    const totalNumber = numbers.reduce((acc, num) => acc + num, 0)
+
+    // console.log(totalNumber);
+
     
+    // ---------------------
 }
